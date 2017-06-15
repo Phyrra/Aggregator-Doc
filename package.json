@@ -4,13 +4,15 @@
   "description": "",
   "main": ".dist/gmain.js",
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+	"serve": "gulp serve"
   },
   "author": "Sandro Maggi",
   "license": "MIT",
   "devDependencies": {
     "@types/angular": "^1.6.18",
     "@types/node": "^7.0.31",
+    "browser-sync": "^2.18.12",
     "browserify": "^14.4.0",
     "gulp": "^3.9.1",
     "gulp-angular-embed-templates": "^2.3.0",
@@ -27,6 +29,7 @@
     "@angular/core": "^4.2.2",
     "@angular/platform-browser": "^4.2.2",
     "@angular/platform-browser-dynamic": "^4.2.2",
+    "@angular/router": "^4.2.2",
     "reflect-metadata": "^0.1.10",
     "zone.js": "^0.8.12"
   }

@@ -5,6 +5,7 @@ var tsify = require("tsify")
 var embedTemplates = require("gulp-angular-embed-templates");
 var sass = require("gulp-sass");
 var concatCss = require("gulp-concat-css");
+var browserSync = require("browser-sync").create();
 
 gulp.task("sass", function() {
 	return gulp.src([
@@ -16,7 +17,7 @@ gulp.task("sass", function() {
 		.pipe(gulp.dest('.'));
 });
  
-gulp.task("embed-templates", function () {
+gulp.task("embed-templates", function() {
     return gulp.src("app/**/*.ts")
         .pipe(embedTemplates(
 			{ sourceType: "ts" }
@@ -24,7 +25,7 @@ gulp.task("embed-templates", function () {
         .pipe(gulp.dest("./build/precompile"));
 });
 
-gulp.task("build", ["embed-templates", "sass"], function () {
+gulp.task("build", ["embed-templates", "sass"], function() {
     return browserify({
         basedir: ".",
         debug: true,
@@ -38,4 +39,11 @@ gulp.task("build", ["embed-templates", "sass"], function () {
     .bundle()
     .pipe(source("app.js"))
     .pipe(gulp.dest("build"));
+});
+
+gulp.task("serve", ["build"], function() {
+	browserSync.init({
+		server: './',
+		online: true // speeds up startup
+	});
 });
