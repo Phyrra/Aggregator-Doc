@@ -1,0 +1,33 @@
+@import "app/definitions.scss";
+
+sama-app {
+	display: flex;
+	flex-direction: column;
+
+	height: 100%;
+
+	.title {
+		background-color: $dark-blue;
+		color: $text-color-inverse;
+
+		flex-grow: 0;
+	}
+
+	.container {
+		background-color: $backdrop;
+		color: $text-color;
+
+		flex-grow: 1;
+
+		display: flex;
+
+		sama-sidebar {
+			flex-grow: 1;
+			border-right: 1px solid $border-color;
+		}
+
+		sama-content {
+			flex-grow: 3;
+		}
+	}
+}

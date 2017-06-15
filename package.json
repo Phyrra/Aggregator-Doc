@@ -1,0 +1,33 @@
+{
+  "name": "typescript-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".dist/gmain.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "Sandro Maggi",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/angular": "^1.6.18",
+    "@types/node": "^7.0.31",
+    "browserify": "^14.4.0",
+    "gulp": "^3.9.1",
+    "gulp-angular-embed-templates": "^2.3.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.1.7",
+    "tsify": "^3.0.1",
+    "typescript": "^2.3.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "@angular/common": "^4.2.2",
+    "@angular/compiler": "^4.2.2",
+    "@angular/core": "^4.2.2",
+    "@angular/platform-browser": "^4.2.2",
+    "@angular/platform-browser-dynamic": "^4.2.2",
+    "reflect-metadata": "^0.1.10",
+    "zone.js": "^0.8.12"
+  }
+}
