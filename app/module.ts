@@ -6,7 +6,13 @@ import { NgModule } from '@angular/core';
 import { SamaApp } from './components/sama-app/sama-app';
 import { SamaAppTitle } from './components/sama-app-title/sama-app-title';
 import { SamaSidebar } from './components/sama-sidebar/sama-sidebar';
+import { SamaSidebarChapter } from './components/sama-sidebar-chapter/sama-sidebar-chapter';
+import { SamaSidebarItem } from './components/sama-sidebar-item/sama-sidebar-item';
 import { SamaContent } from './components/sama-content/sama-content';
+import { SamaChapter } from './components/sama-chapter/sama-chapter';
+import { SamaTopic } from './components/sama-topic/sama-topic';
+
+import { TopicService } from './services/TopicService';
 
 const routes: Routes = [
 	{ path: 'doc', component: SamaContent },
@@ -19,13 +25,19 @@ const routes: Routes = [
 		SamaApp,
 		SamaAppTitle,
 		SamaSidebar,
-		SamaContent
+		SamaSidebarChapter,
+		SamaSidebarItem,
+		SamaContent,
+		SamaChapter,
+		SamaTopic
 	],
 	imports: [
 		RouterModule.forRoot(routes, { useHash: true }),
 		BrowserModule
 	],
-	providers: [],
+	providers: [
+		TopicService
+	],
 	bootstrap: [
 		SamaApp
 	]

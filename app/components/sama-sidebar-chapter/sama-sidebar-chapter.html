@@ -1,0 +1,19 @@
+<div
+	class="title"
+	(click)="toggleExpand()"
+>
+	<div class="text">
+		{{ chapter.title }}
+	</div>
+	<div class="icon">
+		<i [ngClass]="{ 'fa': true, 'fa-chevron-down': expanded, 'fa-chevron-left': !expanded }"></i>
+	</div>
+</div>
+
+<div *ngIf="expanded">
+	<sama-sidebar-item
+		*ngFor="let item of chapter.items"
+		baseRoute="{{ baseRoute }}"
+		[item]="item"
+	></sama-sidebar-item>
+</div>

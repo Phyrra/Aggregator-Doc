@@ -6,14 +6,14 @@ sama-app {
 
 	height: 100%;
 
-	.title {
+	> .title {
 		background-color: $dark-blue;
 		color: $text-color-inverse;
 
 		flex-grow: 0;
 	}
 
-	.container {
+	> .container {
 		background-color: $backdrop;
 		color: $text-color;
 
@@ -24,7 +24,9 @@ sama-app {
 		sama-sidebar {
 			flex-basis: 0;
 			flex-grow: 1;
+
 			border-right: 1px solid $border-color;
+			margin-right: -1px;
 		}
 
 		router-outlet {

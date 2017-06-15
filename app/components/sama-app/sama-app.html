@@ -3,6 +3,10 @@
 </div>
 
 <div class="container">
-	<sama-sidebar></sama-sidebar>
+	<sama-sidebar
+		baseRoute="doc"
+		[chapters]="chapters"
+	></sama-sidebar>
+
 	<router-outlet></router-outlet>
 </div>

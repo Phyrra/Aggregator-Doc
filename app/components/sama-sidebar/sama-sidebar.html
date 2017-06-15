@@ -1,1 +1,7 @@
-Sidebar
+<ng-container *ngFor="let chapter of chapters">
+	<sama-sidebar-chapter
+		*ngIf="chapter.items.length > 0"
+		baseRoute="{{ baseRoute }}"
+		[chapter]="chapter"
+	></sama-sidebar-chapter>
+</ng-container>

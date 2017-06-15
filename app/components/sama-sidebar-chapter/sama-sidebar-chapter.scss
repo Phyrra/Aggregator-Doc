@@ -1,0 +1,23 @@
+@import "app/definitions.scss";
+
+sama-sidebar-chapter {
+	.title {
+		background-color: $middle-blue;
+		color: $text-color-inverse;
+		font-size: $chapter-title-font-size;
+
+		padding: $default-padding;
+
+		cursor: pointer;
+
+		display: flex;
+
+		.text {
+			flex-grow: 1;
+		}
+
+		.icon {
+			width: $icon-width;
+		}
+	}
+}

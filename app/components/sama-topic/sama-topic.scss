@@ -1,0 +1,15 @@
+@import "app/definitions.scss";
+
+sama-topic {
+	> .title {
+		font-size: $default-font-size * 1.5;
+		font-weight: bold;
+
+		padding: $default-padding;
+	}
+
+	> .content {
+		padding: $default-padding;
+		padding-top: 0;
+	}
+}
