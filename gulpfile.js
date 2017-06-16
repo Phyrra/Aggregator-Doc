@@ -19,9 +19,13 @@ gulp.task("sass", function() {
  
 gulp.task("embed-templates", function() {
     return gulp.src("app/**/*.ts")
-        .pipe(embedTemplates(
-			{ sourceType: "ts" }
-		))
+        .pipe(embedTemplates({
+			sourceType: "ts",
+			basePath: 'app/components',
+			skipFiles: function(file) {
+				return file.path.endsWith('sama-content.ts');
+			}
+		}))
         .pipe(gulp.dest("./build/precompile"));
 });
 

@@ -11,5 +11,22 @@ sama-topic {
 	> .content {
 		padding: $default-padding;
 		padding-top: 0;
+
+		sama-fnc-signature,
+		sama-code-block {
+			margin-left: -$default-padding + 1;
+			margin-right: -$default-padding;
+		}
+
+		.section {
+			&:not(:first-child) {
+				margin-top: $default-padding;
+			}
+		}
+
+		.section-title {
+			font-weight: bold;
+			margin-bottom: $default-padding;
+		}
 	}
 }

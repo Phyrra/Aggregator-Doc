@@ -5,7 +5,7 @@ import { SidebarChapter } from '../../data/Sidebar';
 
 @Component({
 	selector: 'sama-sidebar',
-	templateUrl: './sama-sidebar.html'
+	templateUrl: './sama-sidebar/sama-sidebar.html'
 })
 export class SamaSidebar {
 	@Input() baseRoute: string;

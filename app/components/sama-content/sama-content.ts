@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
 	selector: 'sama-content',
-	templateUrl: './sama-content.html'
+	templateUrl: './content.html'
 })
 export class SamaContent {
 	topic: string;

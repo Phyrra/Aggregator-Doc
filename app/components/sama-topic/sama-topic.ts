@@ -3,7 +3,7 @@ import { Input } from '@angular/core';
 
 @Component({
 	selector: 'sama-topic',
-	templateUrl: './sama-topic.html'
+	templateUrl: './sama-topic/sama-topic.html'
 })
 export class SamaTopic {
 	@Input() title:string;

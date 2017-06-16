@@ -1,0 +1,24 @@
+@import "app/definitions.scss";
+
+sama-code-block {
+	display: block;
+	padding: $default-padding;
+
+	margin-top: $default-padding;
+	margin-bottom: $default-padding;
+
+	background-color: #283646;
+	color: #ddd;
+
+	.keyword {
+		color: #86b9f5;
+	}
+
+	.string {
+		color: #62d543;
+	}
+
+	.number {
+		color: #fee937;
+	}
+}

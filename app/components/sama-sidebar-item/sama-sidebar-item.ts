@@ -5,7 +5,7 @@ import { SidebarItem } from '../../data/Sidebar';
 
 @Component({
 	selector: 'sama-sidebar-item',
-	templateUrl: './sama-sidebar-item.html'
+	templateUrl: './sama-sidebar-item/sama-sidebar-item.html'
 })
 export class SamaSidebarItem {
 	@Input() baseRoute: string;

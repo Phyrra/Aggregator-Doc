@@ -11,6 +11,8 @@ import { SamaSidebarItem } from './components/sama-sidebar-item/sama-sidebar-ite
 import { SamaContent } from './components/sama-content/sama-content';
 import { SamaChapter } from './components/sama-chapter/sama-chapter';
 import { SamaTopic } from './components/sama-topic/sama-topic';
+import { SamaFncSignature } from './components/sama-fnc-signature/sama-fnc-signature';
+import { SamaCodeBlock } from './components/sama-code-block/sama-code-block';
 
 import { TopicService } from './services/TopicService';
 
@@ -29,7 +31,9 @@ const routes: Routes = [
 		SamaSidebarItem,
 		SamaContent,
 		SamaChapter,
-		SamaTopic
+		SamaTopic,
+		SamaFncSignature,
+		SamaCodeBlock
 	],
 	imports: [
 		RouterModule.forRoot(routes, { useHash: true }),

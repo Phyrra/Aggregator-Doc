@@ -6,7 +6,7 @@ import { TopicService } from '../../services/TopicService';
 
 @Component({
 	selector: 'sama-app',
-	templateUrl: './sama-app.html'
+	templateUrl: './sama-app/sama-app.html'
 })
 export class SamaApp {
 	appTitle:string = 'Aggregator Doc';

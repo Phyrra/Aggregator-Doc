@@ -1,0 +1,56 @@
+<sama-chapter title="Aggregator">
+	<sama-topic title="find()" id="aggregator-find">
+		<div class="section">
+			Finds a value matching a given condition.
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.find(</span>
+			<span class="signature">
+				Function | Object
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				{{'agg.find(function(elem) {'}}
+				{{'    return elem.value % 2 === 0;'}}
+				{{'});'}}
+			</sama-code-block>
+
+			Bla
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				{{'agg.find({'}}
+				{{'    state: \'ACTIVE\','}}
+				{{'    balance: function(elem) {'}}
+				{{'        return elem.balance > 10000;'}}
+				{{'    })'}}
+				{{'});'}}
+			</sama-code-block>
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.find(</span>
+			<span class="signature">
+				String, (Function | Any)
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<sama-fnc-signature>
+			<span class="call">a.find(</span>
+			<span class="signature">
+				Array, Function
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+	</sama-topic>
+</sama-chapter>
