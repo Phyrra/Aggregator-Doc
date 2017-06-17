@@ -4,6 +4,12 @@
 			Finds a value matching a given condition.
 		</div>
 
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">(Any)</span>: Returns a found element, or <span class="type">null</span>
+		</div>
+
 		<sama-fnc-signature>
 			<span class="call">a.find(</span>
 			<span class="signature">
@@ -13,22 +19,26 @@
 		</sama-fnc-signature>
 
 		<div class="section">
-			<div class="section-title">Example</div>
+			<div class="section-title">Arguments</div>
 
-			<sama-code-block>
-				agg.find(function(elem) &#123;
-					return elem.value % 2 === 0;
-				&#125;);
-			</sama-code-block>
-
-			Bla
+			<div>
+				<span class="type">condition (Function)</span>: A condition to be evaluated
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<span class="type">obj (Object)</span>: An object, containing key - condition pairs
+			</div>
 		</div>
 
 		<div class="section">
 			<div class="section-title">Example</div>
 
 			<sama-code-block>
-				agg.find(&#123;
+				a.find(function(elem) &#123;
+					return elem.value % 2 === 0;
+				&#125;);
+
+				a.find(&#123;
 					state: 'ACTIVE',
 					balance: function(elem) &#123;
 						return elem.balance > 10000;
@@ -45,6 +55,42 @@
 			<span class="call">)</span>
 		</sama-fnc-signature>
 
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<div>
+					<span class="type">key (String)</span>: A property key, may be composited with <span class="type">.</span>
+					(e.g. <span class="inline">state.id</span>)
+				</div>
+				<div>
+					<span class="type">condition (Function)</span>: A condition to be evaluated
+				</div>
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<div>
+					<span class="type">key (String)</span>: A property key, may be composited with <span class="type">.</span>
+					(e.g. <span class="inline">state.id</span>)
+				</div>
+				<div>
+					<span class="type">value (Any)</span>: A value to compare against
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.find('state.id', function(id) &#123;
+					return id === 'ACTIVE';
+				&#125;);
+
+				a.find('state.id', 'ACTIVE');
+			</sama-code-block>
+		</div>
+
 		<sama-fnc-signature>
 			<span class="call">a.find(</span>
 			<span class="signature">
@@ -52,5 +98,192 @@
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<div>
+					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					either composite keys or functions
+				</div>
+				<div>
+					<span class="type">condition (Function)</span>: A condition to be evaluated against all values
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.find(['state.id', 'employee.state.id'], function(values) &#123;
+					return values[0] === 'ACTIVE' && values[1] === 'ACTIVE';
+				&#125;);
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="where" id="aggregator-where">
+		<div class="section">
+			Filter values matching a given condition.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Aggregator</span>: Returns a new Aggregator containing the filtered elements
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.where(</span>
+			<span class="signature">
+				Function | Object
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">condition (Function)</span>: A condition to be evaluated
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<span class="type">obj (Object)</span>: An object, containing key - condition pairs
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.where(function(elem) &#123;
+					return elem.value % 2 === 0;
+				&#125;);
+
+				a.where(&#123;
+					state: 'ACTIVE',
+					balance: function(elem) &#123;
+						return elem.balance > 10000;
+					&#125;)
+				&#125;);
+			</sama-code-block>
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.where(</span>
+			<span class="signature">
+				String, (Function | Any)
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<div>
+					<span class="type">key (String)</span>: A property key, may be composited with <span class="type">.</span>
+					(e.g. <span class="inline">state.id</span>)
+				</div>
+				<div>
+					<span class="type">condition (Function)</span>: A condition to be evaluated
+				</div>
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<div>
+					<span class="type">key (String)</span>: A property key, may be composited with <span class="type">.</span>
+					(e.g. <span class="inline">state.id</span>)
+				</div>
+				<div>
+					<span class="type">value (Any)</span>: A value to compare against
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.where('state.id', function(id) &#123;
+					return id === 'ACTIVE';
+				&#125;);
+
+				a.where('state.id', 'ACTIVE');
+			</sama-code-block>
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.where(</span>
+			<span class="signature">
+				Array, Function
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<div>
+					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					either composite keys or functions
+				</div>
+				<div>
+					<span class="type">condition (Function)</span>: A condition to be evaluated against all values
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.where(['state.id', 'employee.state.id'], function(values) &#123;
+					return values[0] === 'ACTIVE' && values[1] === 'ACTIVE';
+				&#125;);
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="map" id="aggregator-map">
+		<div class="section">
+			Map values onto other values.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Aggregator</span>: Returns a new Aggregator containing the mapped elements
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">a.map(</span>
+			<span class="signature">
+				Function
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">mapper (Function)</span>: A mapping function
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.map(function(elem) &#123;
+					return elem * 2;
+				&#125;);
+			</sama-code-block>
+		</div>
 	</sama-topic>
 </sama-chapter>

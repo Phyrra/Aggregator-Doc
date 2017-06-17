@@ -2,10 +2,14 @@
 
 sama-topic {
 	> .title {
+		background-color: $light-blue;
+		color: $text-color-inverse;
+
 		font-size: $default-font-size * 1.5;
 		font-weight: bold;
 
 		padding: $default-padding;
+		margin-bottom: $default-padding;
 	}
 
 	> .content {
@@ -21,6 +25,21 @@ sama-topic {
 		.section {
 			&:not(:first-child) {
 				margin-top: $default-padding;
+			}
+
+			.type {
+				color: $middle-blue;
+				font-weight: bold;
+			}
+
+			.alternative {
+				color: $middle-grey;
+			}
+
+			.inline {
+				color: $dark-grey;
+				font-family: monospace;
+				font-weight: bold;
 			}
 		}
 

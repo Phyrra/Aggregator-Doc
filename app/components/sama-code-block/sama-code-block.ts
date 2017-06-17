@@ -104,6 +104,10 @@ export class SamaCodeBlock implements AfterViewInit {
 	];
 
 	private highlightCode(line: string) : string {
+		if (line.trim().length === 0) {
+			return '&nbsp;';
+		}
+		
 		SamaCodeBlock.KEYWORDS.forEach(function(keyword) {
 			line = line.replace(new RegExp(keyword, 'g'), match => {
 				return '<span class="keyword">' + match + '</span>';
