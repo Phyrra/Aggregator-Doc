@@ -25,6 +25,7 @@
     "gulp-concat-css": "^2.3.0",
     "gulp-sass": "^3.1.0",
     "gulp-typescript": "^3.1.7",
+    "jquery-ts": "^2.1.1",
     "rxjs": "^5.4.1",
     "tsify": "^3.0.1",
     "typescript": "^2.3.4",
