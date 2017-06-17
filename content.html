@@ -16,9 +16,9 @@
 			<div class="section-title">Example</div>
 
 			<sama-code-block>
-				{{'agg.find(function(elem) {'}}
-				{{'    return elem.value % 2 === 0;'}}
-				{{'});'}}
+				agg.find(function(elem) &#123;
+					return elem.value % 2 === 0;
+				&#125;);
 			</sama-code-block>
 
 			Bla
@@ -28,12 +28,12 @@
 			<div class="section-title">Example</div>
 
 			<sama-code-block>
-				{{'agg.find({'}}
-				{{'    state: \'ACTIVE\','}}
-				{{'    balance: function(elem) {'}}
-				{{'        return elem.balance > 10000;'}}
-				{{'    })'}}
-				{{'});'}}
+				agg.find(&#123;
+					state: 'ACTIVE',
+					balance: function(elem) &#123;
+						return elem.balance > 10000;
+					&#125;)
+				&#125;);
 			</sama-code-block>
 		</div>
 

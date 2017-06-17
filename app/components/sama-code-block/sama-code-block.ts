@@ -15,19 +15,19 @@ export class SamaCodeBlock implements AfterViewInit {
 		let code: string = element.innerHTML;
 
 		let lines: string[] = code.split('\n');
-		let usefulLines: string[] = this.stripUselessLines(lines);
 
-		let normalizedWhitespace: string[] = this.replaceLeadingTabs(usefulLines);
+		let normalizedWhitespace: string[] = this.stripUselessLines(lines)
+			.map(this.replaceLeadingTabs);
+			
 		let leadingWhitespace: string = this.getLeadingWhitespace(normalizedWhitespace);
 
-		let unpaddedLines: string[] = this.unpadWhitespace(normalizedWhitespace, leadingWhitespace);
-		let htmlWhitespaceLines: string[] = this.replaceLeadingWhitespace(unpaddedLines);
+		let newHtml: string = normalizedWhitespace
+			.map(line => this.unpadWhitespace(line, leadingWhitespace))
+			.map(this.replaceLeadingWhitespace)
+			.map(line => '<div>' + this.highlightCode(line) + '</div>')
+			.join('');
 
-		let newHtml = htmlWhitespaceLines.map(line => {
-			return '<div>' + this.highlightCode(line) + '</div>';
-		});
-
-		element.innerHTML = newHtml.join('');
+		element.innerHTML = newHtml;
 	}
 
 	private stripUselessLines(lines: string[]) : string[] {
@@ -69,30 +69,24 @@ export class SamaCodeBlock implements AfterViewInit {
 		return firstNonEmptyLine.match(/^\s+/)[0];
 	}
 
-	private unpadWhitespace(lines: string[], whitespace: string) : string[] {
-		return lines.map(line => {
-			return line.startsWith(whitespace) ?
-				line.substring(whitespace.length) :
-				line;
+	private unpadWhitespace(line: string, whitespace: string) : string {
+		return line.startsWith(whitespace) ?
+			line.substring(whitespace.length) :
+			line;
+	}
+
+	private replaceLeadingTabs(line: string) : string {
+		return line.replace(/^\s+/, match => {
+			return match
+				.replace(/\t/g, '    ');
 		});
 	}
 
-	private replaceLeadingTabs(lines: string[]) : string[] {
-		return lines.map(line => {
-			return line.replace(/^\s+/, match => {
-				return match
-					.replace(/\t/g, '    ');
-			});
-		});
-	}
-
-	private replaceLeadingWhitespace(lines: string[]) : string[] {
-		return lines.map(line => {
-			return line.replace(/^\s+/, match => {
-				return match
-					.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')
-					.replace(/\s/g, '&nbsp;');
-			});
+	private replaceLeadingWhitespace(line: string) : string {
+		return line.replace(/^\s+/, match => {
+			return match
+				.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')
+				.replace(/\s/g, '&nbsp;');
 		});
 	}
 
