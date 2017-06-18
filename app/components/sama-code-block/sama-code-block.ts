@@ -103,25 +103,51 @@ export class SamaCodeBlock implements AfterViewInit {
 		'var'
 	];
 
-	private highlightCode(line: string) : string {
-		if (line.trim().length === 0) {
-			return '&nbsp;';
-		}
-		
+	private highlightKeywords(line: string) : string {
 		SamaCodeBlock.KEYWORDS.forEach(function(keyword) {
 			line = line.replace(new RegExp(keyword, 'g'), match => {
 				return '<span class="keyword">' + match + '</span>';
 			});
 		});
 
-		line = line
+		return line;
+	}
+
+	private highlightNumbers(line: string) : string {
+		return line
 			.replace(/\b\d+\b/g, match => {
 				return '<span class="number">' + match + '</span>';
 			})
+	}
+
+	private highlightStrings(line: string) : string {
+		return line
 			.replace(/'.*?'/g, match => {
 				return '<span class="string">' + match + '</span>';
 			});
+	}
 
-		return line;
+	private highlightCode(line: string) : string {
+		if (line.trim().length === 0) {
+			return '&nbsp;';
+		}
+
+		var commentIdx = line.indexOf('//');
+
+		var code;
+		var comment;
+		if (commentIdx === -1) {
+			code = line;
+			comment = '';
+		} else {
+			code = line.substring(0, commentIdx);
+			comment = '<span class="comment">' + line.substring(commentIdx) + '</span>';
+		}
+
+		code = this.highlightKeywords(code);
+		code = this.highlightNumbers(code);
+		code = this.highlightStrings(code);
+
+		return code + comment;
 	}
 }

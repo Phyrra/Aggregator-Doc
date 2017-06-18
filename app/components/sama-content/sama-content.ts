@@ -18,16 +18,18 @@ export class SamaContent {
 					return;
 				}
 
-				let $element: any = $('#' + topic);
-				if ($element.length === 0) {
-					return;
-				}
+				setTimeout(function() {
+					let $element: any = $('#' + topic);
+					if ($element.length === 0) {
+						return;
+					}
 
-				var $parent: any = $element.closest('sama-content');
-				
-				$parent.animate({
-					scrollTop: $element.offset().top - $parent.offset().top + $parent.scrollTop()
-				}, 500);
+					var $parent: any = $element.closest('sama-content');
+					
+					$parent.animate({
+						scrollTop: $element.offset().top - $parent.offset().top + $parent.scrollTop()
+					}, 500);
+				}, 50);
 			});
 	}
 }

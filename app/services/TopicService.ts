@@ -25,14 +25,14 @@ export class TopicService {
 						id: 'aggregator-reverse',
 						title: 'reverse()'
 					}, {
+						id: 'aggregator-count',
+						title: 'count()'
+					}, {
 						id: 'aggregator-has',
 						title: 'has()'
 					}, {
 						id: 'aggregator-all',
 						title: 'all()'
-					}, {
-						id: 'aggregator-count',
-						title: 'count()'
 					}, {
 						id: 'aggregator-sum',
 						title: 'sum()'
