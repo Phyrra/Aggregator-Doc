@@ -1423,6 +1423,250 @@
 </sama-chapter>
 
 <sama-chapter title="Group">
+	<sama-topic title="keys" id="group-keys">
+		<div class="section">
+			Get all keys of the <span class="type">Group</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Array[ String ]</span>: Returns a list of keys
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.keys(</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">-</span>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.keys();
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="values" id="group-values">
+		<div class="section">
+			Get all values of the <span class="type">Group</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Array[ Any ]</span>: Returns a list of grouped values
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.values(</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">-</span>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.values();
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="get" id="group-get">
+		<div class="section">
+			Get a specific value group from the <span class="type">Group</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Array[ Any ]</span>: Returns a group of values
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.get(</span>
+			<span class="signature">
+				String
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">key (String)</span>: The identifier name (key) of the group
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.get('sales');
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="set" id="group-set">
+		<div class="section">
+			Push a specific value group into the <span class="type">Group</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Group</span>: Returns the group itself
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.set(</span>
+			<span class="signature">
+				String, Any
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">key (String)</span>: The identifier name (key) of the group
+			</div>
+			<div>
+				<span class="type">values (Array)</span>: The values of the group
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.set('sales', [
+					&#123; .. &#125;,
+					&#123; .. &#125;
+				]);
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="toArray" id="group-toarray">
+		<div class="section">
+			Turns the <span class="type">Group</span> into an <span class="type">Array</span>,
+			containing elements of <span class="inline">&#123; _key: String, _items: Array[ Any ] &#125;</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Array[ Any ]</span>: Returns a list containing the flattened groups
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.toArray(</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">-</span>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.toArray();
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="toMap" id="group-tomap">
+		<div class="section">
+			Turns the <span class="type">Group</span> into an <span class="type">Object</span>.
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Object</span>: Returns an object with group-key / group-values pairs
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.toMap(</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">-</span>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.toMap();
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
+	<sama-topic title="toAggregator" id="group-toaggregator">
+		<div class="section">
+			Turns the <span class="type">Group</span> into an <span class="type">Aggregator</span>,
+			containing elements of <span class="inline">&#123; _key: String, _items: Array[ Any ] &#125;</span>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Aggregator</span>: Returns an <span class="type">Aggregator</span> containing the flattened groups
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">g.toAggregator(</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">-</span>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				g.toAggregator();
+			</sama-code-block>
+		</div>
+	</sama-topic>
 </sama-chapter>
 
 <sama-chapter title="Matchers">

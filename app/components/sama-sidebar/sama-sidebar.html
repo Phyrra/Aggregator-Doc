@@ -3,10 +3,12 @@
 	(onSearch)="onSearch($event)"
 ></sama-sidebar-search>
 
-<ng-container *ngFor="let chapter of filteredChapters">
-	<sama-sidebar-chapter
-		*ngIf="chapter.items.length > 0"
-		baseRoute="{{ baseRoute }}"
-		[chapter]="chapter"
-	></sama-sidebar-chapter>
-</ng-container>
+<div class="sidebar-content">
+	<ng-container *ngFor="let chapter of filteredChapters">
+		<sama-sidebar-chapter
+			*ngIf="chapter.items.length > 0"
+			baseRoute="{{ baseRoute }}"
+			[chapter]="chapter"
+		></sama-sidebar-chapter>
+	</ng-container>
+</div>

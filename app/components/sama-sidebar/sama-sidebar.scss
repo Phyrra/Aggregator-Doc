@@ -1,4 +1,18 @@
+@import "app/definitions.scss";
+
 sama-sidebar {
-	overflow-y: auto;
-	overflow-x: hidden;
+	position: relative;
+
+	sama-sidebar-search {
+		position: absolute;
+		top: 0;
+	}
+
+	.sidebar-content {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		padding-top: $default-padding * 2 + 28; // height of search
+	}
 }
