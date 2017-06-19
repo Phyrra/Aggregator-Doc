@@ -1,14 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DOCUMENT } from '@angular/platform-browser';
-import $ from 'jquery-ts';
+
+import { PageScrollService } from '../../services/PageScrollService';
 
 @Component({
 	selector: 'sama-content',
 	templateUrl: './content.html'
 })
 export class SamaContent {
-	constructor(private route: ActivatedRoute, @Inject(DOCUMENT) private document: any) { }
+	constructor(private route: ActivatedRoute, private pageScroll: PageScrollService) { }
 
 	ngOnInit() {
 		this.route.params
@@ -18,18 +18,7 @@ export class SamaContent {
 					return;
 				}
 
-				setTimeout(function() {
-					let $element: any = $('#' + topic);
-					if ($element.length === 0) {
-						return;
-					}
-
-					var $parent: any = $element.closest('sama-content');
-					
-					$parent.animate({
-						scrollTop: $element.offset().top - $parent.offset().top + $parent.scrollTop()
-					}, 500);
-				}, 50);
+				this.pageScroll.scrollTo(topic, 500, 50);
 			});
 	}
 }

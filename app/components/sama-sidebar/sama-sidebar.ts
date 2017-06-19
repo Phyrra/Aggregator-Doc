@@ -10,4 +10,14 @@ import { SidebarChapter } from '../../data/Sidebar';
 export class SamaSidebar {
 	@Input() baseRoute: string;
 	@Input() chapters: SidebarChapter[];
+
+	filteredChapters: SidebarChapter[];
+
+	ngOnInit() {
+		this.filteredChapters = this.chapters;
+	}
+
+	onSearch(event: any) : void {
+		this.filteredChapters = event.chapters;
+	}
 }

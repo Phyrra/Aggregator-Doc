@@ -1,0 +1,14 @@
+<i class="fa fa-search"></i>
+
+<input
+	type="text"
+	[(ngModel)]="search"
+	(ngModelChange)="performSearch($event)"
+	placeholder="Search"
+/>
+
+<i
+	class="fa fa-times"
+	*ngIf="search"
+	(click)="clearSearch()"
+></i>
