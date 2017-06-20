@@ -1,53 +1,83 @@
-var gulp = require("gulp");
-var browserify = require("browserify");
-var source = require("vinyl-source-stream");
-var tsify = require("tsify")
-var embedTemplates = require("gulp-angular-embed-templates");
-var sass = require("gulp-sass");
-var concatCss = require("gulp-concat-css");
-var browserSync = require("browser-sync").create();
+var gulp = require('gulp');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var tsify = require('tsify')
+var embedTemplates = require('gulp-angular-embed-templates');
+var sass = require('gulp-sass');
+var concatCss = require('gulp-concat-css');
+var browserSync = require('browser-sync').create();
 
-gulp.task("sass", function() {
+gulp.task('sass', function() {
 	return gulp.src([
 			'app/**/*.scss'
 		])
-		.pipe(sass().on("error", sass.logError))
-		.pipe(gulp.dest("build/css/."))
-		.pipe(concatCss("build/styles.css"))
-		.pipe(gulp.dest('.'));
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('tmp/css/.'))
+		.pipe(concatCss('styles.css'))
+		.pipe(gulp.dest('build'));
 });
  
-gulp.task("embed-templates", function() {
-    return gulp.src("app/**/*.ts")
+gulp.task('embed-templates', function() {
+    return gulp.src('app/**/*.ts')
         .pipe(embedTemplates({
-			sourceType: "ts",
+			sourceType: 'ts',
 			basePath: 'app/components',
 			skipFiles: function(file) {
 				return file.path.endsWith('sama-content.ts');
 			}
 		}))
-        .pipe(gulp.dest("./build/precompile"));
+        .pipe(gulp.dest('tmp/precompile'));
 });
 
-gulp.task("build", ["embed-templates", "sass"], function() {
+gulp.task('compile', ['embed-templates'], function() {
     return browserify({
-        basedir: ".",
+        basedir: '.',
         debug: true,
         entries: [
-			"build/precompile/module.ts"
+			'tmp/precompile/module.ts'
 		],
         cache: {},
         packageCache: {}
     })
     .plugin(tsify)
     .bundle()
-    .pipe(source("app.js"))
-    .pipe(gulp.dest("build"));
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('build'));
 });
 
-gulp.task("serve", ["build"], function() {
+gulp.task('build', ['compile', 'sass'], function() {
+	gulp.src([
+		'app/index.html',
+		'app/content.html'
+	])
+	.pipe(gulp.dest('build'));
+
+	
+	gulp.src([
+		'node_modules/zone.js/dist/zone.js',
+		'node_modules/reflect-metadata/Reflect.js',
+		'node_modules/font-awesome/css/font-awesome.min.css'
+	])
+	.pipe(gulp.dest('build/deps'));
+
+	gulp.src([
+		'node_modules/font-awesome/fonts/*'
+	])
+	.pipe(gulp.dest('build/fonts'))
+
+	return true;
+});
+
+gulp.task('serve', ['build'], function() {
 	browserSync.init({
-		server: './',
+		server: './build',
+		online: true // speeds up startup
+	});
+});
+
+gulp.task('quick-serve', function() {
+	browserSync.init({
+		server: './build',
 		online: true // speeds up startup
 	});
 });
