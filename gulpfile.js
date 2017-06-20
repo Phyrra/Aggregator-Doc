@@ -48,7 +48,8 @@ gulp.task('compile', ['embed-templates'], function() {
 gulp.task('build', ['compile', 'sass'], function() {
 	gulp.src([
 		'app/index.html',
-		'app/content.html'
+		'app/content.html',
+		'favicon.ico'
 	])
 	.pipe(gulp.dest('build'));
 
