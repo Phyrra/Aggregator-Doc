@@ -104,6 +104,9 @@ export class TopicService {
 						id: 'matcher-lte',
 						title: 'lte()'
 					}, {
+						id: 'matcher-match',
+						title: 'match()'
+					}, {
 						id: 'matcher-isnull',
 						title: 'isNull()'
 					}, {

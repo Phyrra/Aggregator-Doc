@@ -2066,6 +2066,148 @@
 		</div>
 	</sama-topic>
 
+	<sama-topic title="match" id="matcher-match">
+		<div class="section">
+			Checks if a value matches the provided reference, based on the following rules
+			<ul>
+				<li>The search term will be split on space</li>
+				<li>Any non-word characters will be stripped</li>
+				<li>parts that are too short will be ignored</li>
+				<li>Matches need not be exact, everything within a certain distance will be included</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Returns</div>
+
+			<span class="type">Boolean</span>: true if the value is a complete or partial match, false if not
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">match(</span>
+			<span class="signature">
+				[( String | Function ), ] String
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">key (String)</span>: A property key, may be composited with <span class="inline">.</span>
+				(e.g. <span class="inline">state.id</span>)
+			</div>
+			<div>
+				<span class="type">reference (String)</span>: A value to compare against
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<span class="type">mapper (Function)</span>: A function to map the element for comparison
+			</div>
+			<div>
+				<span class="type">reference (String)</span>: A value to compare against
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				a.where(
+					match('description', 'word')
+				);
+				
+				a.where(
+					match('description', 'multiple words')
+				);
+
+				a.where(
+					match('description', 'mispelled')
+				);
+			</sama-code-block>
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">match.configure(</span>
+			<span class="signature">
+				(Object) | (String, Any)
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Configuration</div>
+
+			<ul>
+				<li>
+					<span class="inline">ignoreCase</span>: ignore the case,
+					default: <span class="type">true</span>
+				</li>
+				<li>
+					<span class="inline">minLength</span>: minimal length of a part to be considered,
+					default: <span class="type">3</span>
+				</li>
+				<li>
+					<span class="inline">fuzzyLimit</span>: minimal fuzzy match for the result to be accepted,
+					default: <span class="type">0.75</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">config (Object)</span>: The config object, only known keys will be applied
+			</div>
+			<div class="alternative">-or-</div>
+			<div>
+				<span class="type">key (String)</span>: A specific config key, only known keys will be accepted
+			</div>
+			<div>
+				<span class="type">value (Any)</span>: A config value
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				match.configure(&#123;
+					ignoreCase: false,
+					fuzzyLimit: 1
+				&#125;);
+				
+				match.configure('ignoreCase', false);
+			</sama-code-block>
+		</div>
+
+		<sama-fnc-signature>
+			<span class="call">match.getConfig(</span>
+			<span class="signature">
+				String
+			</span>
+			<span class="call">)</span>
+		</sama-fnc-signature>
+
+		<div class="section">
+			<div class="section-title">Arguments</div>
+
+			<div>
+				<span class="type">key (String)</span>: A specific config key
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="section-title">Example</div>
+
+			<sama-code-block>
+				match.getConfig('fuzzyLimit');
+			</sama-code-block>
+		</div>
+	</sama-topic>
+
 	<sama-topic title="isNull" id="matcher-isnull">
 		<div class="section">
 			Checks if a value is <span class="type">null</span> or <span class="type">undefined</span>.
