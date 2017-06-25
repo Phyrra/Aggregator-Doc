@@ -45,15 +45,15 @@ gulp.task('compile', ['embed-templates'], function() {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['compile', 'sass'], function() {
+gulp.task('copy', function() {
 	gulp.src([
 		'app/index.html',
 		'app/content.html',
-		'favicon.ico'
+		'favicon.ico',
+		'bower_components/sama-aggregator/lib/Aggregator.js'
 	])
 	.pipe(gulp.dest('build'));
 
-	
 	gulp.src([
 		'node_modules/zone.js/dist/zone.js',
 		'node_modules/reflect-metadata/Reflect.js',
@@ -67,6 +67,10 @@ gulp.task('build', ['compile', 'sass'], function() {
 	.pipe(gulp.dest('build/fonts'))
 
 	return true;
+});
+
+gulp.task('build', ['compile', 'sass', 'copy'], function() {
+	
 });
 
 gulp.task('serve', ['build'], function() {
