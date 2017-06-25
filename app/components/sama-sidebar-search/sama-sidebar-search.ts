@@ -15,6 +15,10 @@ export class SamaSidebarSearch {
  
 	performSearch() : void {
 		if (!this.search) {
+			this.onSearch.emit({
+				chapters: this.chapters
+			});
+
 			return;
 		}
 
