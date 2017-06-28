@@ -6,6 +6,7 @@ var embedTemplates = require('gulp-angular-embed-templates');
 var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
 var browserSync = require('browser-sync').create();
+var minify = require('gulp-minify');
 
 gulp.task('sass', function() {
 	return gulp.src([
@@ -16,7 +17,7 @@ gulp.task('sass', function() {
 		.pipe(concatCss('styles.css'))
 		.pipe(gulp.dest('build'));
 });
- 
+
 gulp.task('embed-templates', function() {
     return gulp.src('app/**/*.ts')
         .pipe(embedTemplates({
@@ -42,7 +43,18 @@ gulp.task('compile', ['embed-templates'], function() {
     .plugin(tsify)
     .bundle()
     .pipe(source('app.js'))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('tmp'));
+});
+
+gulp.task('minify', ['compile'], function() {
+	return gulp.src('tmp/app.js')
+		.pipe(minify({
+			ext: {
+				src: '-debug.js',
+				min: '.min.js'
+			}
+		}))
+		.pipe(gulp.dest('build'));
 });
 
 gulp.task('copy', function() {
@@ -64,14 +76,12 @@ gulp.task('copy', function() {
 	gulp.src([
 		'node_modules/font-awesome/fonts/*'
 	])
-	.pipe(gulp.dest('build/fonts'))
+	.pipe(gulp.dest('build/fonts'));
 
 	return true;
 });
 
-gulp.task('build', ['compile', 'sass', 'copy'], function() {
-	
-});
+gulp.task('build', ['minify', 'sass', 'copy'], function() { });
 
 gulp.task('serve', ['build'], function() {
 	browserSync.init({
