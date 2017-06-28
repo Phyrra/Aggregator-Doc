@@ -7,6 +7,7 @@ var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
 var browserSync = require('browser-sync').create();
 var minify = require('gulp-minify');
+var rename = require('gulp-rename');
 
 gulp.task('sass', function() {
 	return gulp.src([
@@ -82,6 +83,12 @@ gulp.task('copy', function() {
 });
 
 gulp.task('build', ['minify', 'sass', 'copy'], function() { });
+
+gulp.task('dev-build', ['compile', 'sass', 'copy'], function() {
+	return gulp.src('tmp/app.js')
+		.pipe(rename('app.min.js'))
+		.pipe(gulp.dest('build'));
+});
 
 gulp.task('serve', ['build'], function() {
 	browserSync.init({

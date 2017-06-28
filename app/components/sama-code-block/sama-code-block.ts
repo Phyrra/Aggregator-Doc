@@ -9,7 +9,7 @@ export class SamaCodeBlock implements AfterViewInit {
 	@ViewChild('content') content: ElementRef;
 
 	constructor(private renderer: Renderer) { }
-	
+
 	ngAfterViewInit() {
 		let element: any = this.content.nativeElement;
 		let code: string = element.innerHTML;
@@ -18,13 +18,14 @@ export class SamaCodeBlock implements AfterViewInit {
 
 		let normalizedWhitespace: string[] = this.stripUselessLines(lines)
 			.map(this.replaceLeadingTabs);
-			
+
 		let leadingWhitespace: string = this.getLeadingWhitespace(normalizedWhitespace);
 
 		let newHtml: string = normalizedWhitespace
 			.map(line => this.unpadWhitespace(line, leadingWhitespace))
-			.map(this.replaceLeadingWhitespace)
-			.map(line => '<div>' + this.highlightCode(line) + '</div>')
+			.map(line => this.replaceLeadingWhitespace(line))
+			.map(line => this.highlightCode(line))
+			.map((line, idx) => this.asCodeLine(line, idx, normalizedWhitespace.length))
 			.join('');
 
 		element.innerHTML = newHtml;
@@ -149,5 +150,28 @@ export class SamaCodeBlock implements AfterViewInit {
 		code = this.highlightStrings(code);
 
 		return code + comment;
+	}
+
+	private leftPad(i: number, n: number) : string {
+		var s = i.toString();
+
+		for (var j = s.length; j <= n; ++j) {
+			s = '&nbsp;' + s;
+		}
+
+		return s;
+	}
+
+	private asCodeLine(line: string, idx: number, maxLines: number) : string {
+		var lineNumber: string;
+		if (maxLines > 1) {
+			lineNumber = '<span class="line-number">' + this.leftPad(idx + 1, maxLines.toString().length) + '</span>';
+		} else {
+			lineNumber = '';
+		}
+
+		var codeLine: string = '<span class="code-line">' + line + '</span>';
+
+		return '<div>' + lineNumber + codeLine + '</div>';
 	}
 }

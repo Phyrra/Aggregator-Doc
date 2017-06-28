@@ -2,7 +2,6 @@
 
 sama-code-block {
 	display: block;
-	padding: $default-padding;
 
 	font-family: monospace;
 
@@ -11,6 +10,39 @@ sama-code-block {
 
 	background-color: #283646;
 	color: #ddd;
+
+	> div > div {
+		.line-number {
+			display: inline-block;
+			padding: 0 $default-padding;
+			border-right: 1px solid $dark-grey;
+			color: $dark-grey;
+
+			-webkit-user-select: none; /* Chrome/Safari */
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* IE10+ */
+			user-select: none;
+		}
+
+		.code-line {
+			display: inline-block;
+			padding: 0 $default-padding;
+		}
+
+		&:first-child {
+			.line-number,
+			.code-line {
+				padding-top: $default-padding;
+			}
+		}
+
+		&:last-child {
+			.line-number,
+			.code-line {
+				padding-bottom: $default-padding;
+			}
+		}
+	}
 
 	.keyword {
 		color: #86b9f5;
