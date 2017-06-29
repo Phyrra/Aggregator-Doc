@@ -23,7 +23,7 @@ gulp.task('embed-templates', function() {
     return gulp.src('app/**/*.ts')
         .pipe(embedTemplates({
 			sourceType: 'ts',
-			basePath: 'app/components',
+			basePath: 'app',
 			skipFiles: function(file) {
 				return file.path.endsWith('sama-content.ts');
 			}
