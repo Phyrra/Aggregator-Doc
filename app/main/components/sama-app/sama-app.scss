@@ -1,41 +1,56 @@
 @import "app/definitions.scss";
 
 sama-app {
+	height: 100%;
+
 	display: flex;
 	flex-direction: column;
-
-	height: 100%;
 
 	> .title {
 		background-color: $dark-blue;
 		color: $text-color-inverse;
-
-		flex-grow: 0;
 	}
 
 	> .container {
 		background-color: $backdrop;
 		color: $text-color;
 
+		flex-basis: 0;
 		flex-grow: 1;
 
 		display: flex;
 
-		sama-sidebar {
-			flex-basis: 0;
-			flex-grow: 1;
+		@media(min-width: $breakpoint) {
+			sama-sidebar {
+				flex-basis: 0;
+				flex-grow: 1;
 
-			border-right: 1px solid $border-color;
-			margin-right: -1px;
+				border-right: 1px solid $border-color;
+				margin-right: -1px;
+			}
+
+			sama-content {
+				flex-basis: 0;
+				flex-grow: 3;
+			}
+		}
+
+		@media(max-width: $breakpoint) {
+			sama-sidebar {
+				width: $sidebar-slim-width;
+
+				border-right: 1px solid $border-color;
+				margin-right: -1px;
+			}
+
+			sama-content {
+				flex-basis: 0;
+				flex-grow: 1;
+			}
 		}
 
 		router-outlet {
 			display: none;
-		}
-
-		sama-content {
-			flex-basis: 0;
-			flex-grow: 3;
 		}
 	}
 }

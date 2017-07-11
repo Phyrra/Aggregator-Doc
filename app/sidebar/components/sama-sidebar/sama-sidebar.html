@@ -1,14 +1,25 @@
-<sama-sidebar-search
-	[chapters]="chapters"
-	(onSearch)="onSearch($event)"
-></sama-sidebar-search>
+<div class="sidebar">
+	<sama-sidebar-search
+		[chapters]="chapters"
+		(onSearch)="onSearch($event)"
+	></sama-sidebar-search>
 
-<div class="sidebar-content">
-	<ng-container *ngFor="let chapter of filteredChapters">
-		<sama-sidebar-chapter
-			*ngIf="chapter.items.length > 0"
-			baseRoute="{{ baseRoute }}"
-			[chapter]="chapter"
-		></sama-sidebar-chapter>
-	</ng-container>
+	<div class="sidebar-content">
+		<ng-container *ngFor="let chapter of filteredChapters">
+			<sama-sidebar-chapter
+				*ngIf="chapter.items.length > 0"
+				baseRoute="{{ baseRoute }}"
+				[chapter]="chapter"
+			></sama-sidebar-chapter>
+		</ng-container>
+	</div>
+</div>
+
+<div class="sidebar-slim">
+	<div class="text">
+		<span>Sidebar</span>
+	</div>
+	<div class="icon">
+		<i class="fa fa-chevron-right"></i>
+	</div>
 </div>
