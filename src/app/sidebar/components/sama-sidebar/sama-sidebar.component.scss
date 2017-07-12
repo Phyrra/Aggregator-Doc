@@ -30,7 +30,7 @@
 		}
 	}
 
-	@media(max-width: $breakpoint) {
+	@media(max-width: #{$breakpoint - 1}) {
 		.sidebar-slim {
 			cursor: pointer;
 			height: 100%;

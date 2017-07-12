@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { PageScrollService } from 'app/page-scroll/services/PageScrollService.service';
@@ -7,13 +7,13 @@ import { PageScrollService } from 'app/page-scroll/services/PageScrollService.se
 	selector: 'sama-content',
 	templateUrl: '../../../../content.html'
 })
-export class SamaContent implements OnInit {
+export class SamaContentComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private pageScroll: PageScrollService) { }
 
 	ngOnInit() {
 		this.route.params
 			.subscribe((params: Params) => {
-				let topic: string = params['topic'];
+				const topic: string = params['topic'];
 				if (!topic) {
 					return;
 				}

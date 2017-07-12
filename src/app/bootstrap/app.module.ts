@@ -5,14 +5,14 @@ import { NgModule } from '@angular/core';
 
 import { SamaMainModule } from 'app/main/main.module';
 
-import { SamaApp } from 'app/main/components/sama-app/sama-app.component';
-import { SamaContent } from 'app/main/components/sama-content/sama-content.component';
+import { SamaAppComponent } from 'app/main/components/sama-app/sama-app.component';
+import { SamaContentComponent } from 'app/main/components/sama-content/sama-content.component';
 
 const routes: Routes = [
-	{ path: 'doc', component: SamaContent },
-	{ path: 'doc/:topic', component: SamaContent },
+	{ path: 'doc', component: SamaContentComponent },
+	{ path: 'doc/:topic', component: SamaContentComponent },
 	{ path: '', redirectTo: 'doc', pathMatch: 'full' }
-]
+];
 
 @NgModule({
 	imports: [
@@ -21,7 +21,7 @@ const routes: Routes = [
 		SamaMainModule
 	],
 	bootstrap: [
-		SamaApp
+		SamaAppComponent
 	]
 })
 export class AppModule { }

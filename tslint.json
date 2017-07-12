@@ -20,7 +20,8 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+	  "tabs",
+	  4
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -96,7 +97,7 @@
     "typedef-whitespace": [
       true,
       {
-        "call-signature": "nospace",
+        "call-signature": "onespace",
         "index-signature": "nospace",
         "parameter": "nospace",
         "property-declaration": "nospace",
@@ -107,7 +108,8 @@
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
-      true,
+	  true,
+	  "check-module",
       "check-branch",
       "check-decl",
       "check-operator",
@@ -117,13 +119,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "sama",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "sama",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

@@ -1,28 +1,41 @@
-import { Component } from '@angular/core';
-import { ElementRef, AfterViewInit, ViewChild, Renderer } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { ElementRef, ViewChild, Renderer } from '@angular/core';
 
 @Component({
 	selector: 'sama-code-block',
 	templateUrl: './sama-code-block.component.html',
 	styleUrls: ['./sama-code-block.component.scss']
 })
-export class SamaCodeBlock implements AfterViewInit {
+export class SamaCodeBlockComponent implements AfterViewInit {
+	static readonly KEYWORDS = [
+		'function',
+		'return',
+		'if',
+		'endif',
+		'else',
+		'for',
+		'while',
+		'break',
+		'continue',
+		'var'
+	];
+
 	@ViewChild('content') content: ElementRef;
 
 	constructor(private renderer: Renderer) { }
 
 	ngAfterViewInit() {
-		let element: any = this.content.nativeElement;
-		let code: string = element.innerHTML;
+		const element: any = this.content.nativeElement;
+		const code: string = element.innerHTML;
 
-		let lines: string[] = code.split('\n');
+		const lines: string[] = code.split('\n');
 
-		let normalizedWhitespace: string[] = this.stripUselessLines(lines)
+		const normalizedWhitespace: string[] = this.stripUselessLines(lines)
 			.map(this.replaceLeadingTabs);
 
-		let leadingWhitespace: string = this.getLeadingWhitespace(normalizedWhitespace);
+		const leadingWhitespace: string = this.getLeadingWhitespace(normalizedWhitespace);
 
-		let newHtml: string = normalizedWhitespace
+		const newHtml: string = normalizedWhitespace
 			.map(line => this.unpadWhitespace(line, leadingWhitespace))
 			.map(line => this.replaceLeadingWhitespace(line))
 			.map(line => this.highlightCode(line))
@@ -33,7 +46,7 @@ export class SamaCodeBlock implements AfterViewInit {
 	}
 
 	private stripUselessLines(lines: string[]) : string[] {
-		var firstIdx = 0;
+		let firstIdx = 0;
 		lines.some(line => {
 			if (line.trim().length > 0) {
 				return true;
@@ -43,7 +56,7 @@ export class SamaCodeBlock implements AfterViewInit {
 			return false;
 		});
 
-		var lastIdx = 0;
+		let lastIdx = 0;
 		lines.slice(0).reverse().some(line => {
 			if (line.trim().length > 0) {
 				return true;
@@ -57,7 +70,7 @@ export class SamaCodeBlock implements AfterViewInit {
 	}
 
 	private getLeadingWhitespace(lines: string[]) : string {
-		let nonEmptyLines: string[] = lines
+		const nonEmptyLines: string[] = lines
 			.filter(line => {
 				return line.trim().length > 0;
 			});
@@ -66,7 +79,7 @@ export class SamaCodeBlock implements AfterViewInit {
 			return '';
 		}
 
-		let firstNonEmptyLine: string = nonEmptyLines[0];
+		const firstNonEmptyLine: string = nonEmptyLines[0];
 
 		return firstNonEmptyLine.match(/^\s+/)[0];
 	}
@@ -92,21 +105,8 @@ export class SamaCodeBlock implements AfterViewInit {
 		});
 	}
 
-	static readonly KEYWORDS = [
-		'function',
-		'return',
-		'if',
-		'endif',
-		'else',
-		'for',
-		'while',
-		'break',
-		'continue',
-		'var'
-	];
-
 	private highlightKeywords(line: string) : string {
-		SamaCodeBlock.KEYWORDS.forEach(function(keyword) {
+		SamaCodeBlockComponent.KEYWORDS.forEach(keyword => {
 			line = line.replace(new RegExp(keyword, 'g'), match => {
 				return '<span class="keyword">' + match + '</span>';
 			});
@@ -119,7 +119,7 @@ export class SamaCodeBlock implements AfterViewInit {
 		return line
 			.replace(/\b\d+\b/g, match => {
 				return '<span class="number">' + match + '</span>';
-			})
+			});
 	}
 
 	private highlightStrings(line: string) : string {
@@ -134,10 +134,10 @@ export class SamaCodeBlock implements AfterViewInit {
 			return '&nbsp;';
 		}
 
-		var commentIdx = line.indexOf('//');
+		const commentIdx = line.indexOf('//');
 
-		var code;
-		var comment;
+		let code;
+		let comment;
 		if (commentIdx === -1) {
 			code = line;
 			comment = '';
@@ -154,9 +154,9 @@ export class SamaCodeBlock implements AfterViewInit {
 	}
 
 	private leftPad(i: number, n: number) : string {
-		var s = i.toString();
+		let s = i.toString();
 
-		for (var j = s.length; j <= n; ++j) {
+		for (let j = s.length; j <= n; ++j) {
 			s = '&nbsp;' + s;
 		}
 
@@ -164,14 +164,14 @@ export class SamaCodeBlock implements AfterViewInit {
 	}
 
 	private asCodeLine(line: string, idx: number, maxLines: number) : string {
-		var lineNumber: string;
+		let lineNumber: string;
 		if (maxLines > 1) {
 			lineNumber = '<span class="line-number">' + this.leftPad(idx + 1, maxLines.toString().length) + '</span>';
 		} else {
 			lineNumber = '';
 		}
 
-		var codeLine: string = '<span class="code-line">' + line + '</span>';
+		const codeLine: string = '<span class="code-line">' + line + '</span>';
 
 		return '<div>' + lineNumber + codeLine + '</div>';
 	}

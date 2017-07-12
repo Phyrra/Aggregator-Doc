@@ -8,12 +8,12 @@ import { SidebarChapter } from '../../interfaces/SidebarChapter.interface';
 	templateUrl: './sama-sidebar-chapter.component.html',
 	styleUrls: ['./sama-sidebar-chapter.component.scss']
 })
-export class SamaSidebarChapter {
+export class SamaSidebarChapterComponent {
 	@Input() baseRoute: string;
 	@Input() chapter: SidebarChapter;
-	expanded: boolean = true;
+	expanded = true;
 
-	toggleExpand(): void {
+	toggleExpand() : void {
 		this.expanded = !this.expanded;
 	}
 }

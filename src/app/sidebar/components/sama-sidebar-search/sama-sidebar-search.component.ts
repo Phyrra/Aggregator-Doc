@@ -8,8 +8,8 @@ import { SidebarChapter } from '../../interfaces/SidebarChapter.interface';
 	templateUrl: './sama-sidebar-search.component.html',
 	styleUrls: ['./sama-sidebar-search.component.scss']
 })
-export class SamaSidebarSearch {
-	search: string = '';
+export class SamaSidebarSearchComponent {
+	search = '';
 
 	@Input() chapters: SidebarChapter[];
 	@Output() onSearch = new EventEmitter<object>();
@@ -23,7 +23,7 @@ export class SamaSidebarSearch {
 			return;
 		}
 
-		var lowerSearch = this.search.toLowerCase();
+		const lowerSearch = this.search.toLowerCase();
 
 		this.onSearch.emit({
 			chapters: this.chapters.map(chapter => {
@@ -45,7 +45,7 @@ export class SamaSidebarSearch {
 				return {
 					title: chapter.title,
 					items: chapter.items
-				}
+				};
 			})
 		});
 	}

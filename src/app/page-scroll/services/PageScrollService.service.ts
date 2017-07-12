@@ -5,12 +5,12 @@ import $ from 'jquery-ts';
 @Injectable()
 export class PageScrollService {
 	private scrollToElement(id: string, parentSelector: string, animationTime: number = 500) : void {
-		let $element: any = $('#' + id);
+		const $element: any = $('#' + id);
 		if ($element.length === 0) {
 			return;
 		}
 
-		var $parent: any = $element.closest(parentSelector);
+		const $parent: any = $element.closest(parentSelector);
 
 		$parent.animate({
 			scrollTop: $element.offset().top - $parent.offset().top + $parent.scrollTop()

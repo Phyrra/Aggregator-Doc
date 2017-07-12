@@ -8,7 +8,7 @@ import { SidebarChapter } from '../../interfaces/SidebarChapter.interface';
 	templateUrl: './sama-sidebar.component.html',
 	styleUrls: ['./sama-sidebar.component.scss']
 })
-export class SamaSidebar implements OnInit {
+export class SamaSidebarComponent implements OnInit {
 	@Input() baseRoute: string;
 	@Input() chapters: SidebarChapter[];
 

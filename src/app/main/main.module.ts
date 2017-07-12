@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 
-import { SamaApp } from './components/sama-app/sama-app.component';
-import { SamaAppTitle } from './components/sama-app-title/sama-app-title.component';
-import { SamaContent } from './components/sama-content/sama-content.component';
+import { SamaAppComponent } from './components/sama-app/sama-app.component';
+import { SamaAppTitleComponent } from './components/sama-app-title/sama-app-title.component';
+import { SamaContentComponent } from './components/sama-content/sama-content.component';
 
 import { TopicService } from './services/TopicService.service';
 
@@ -22,17 +22,17 @@ import { SamaPageScrollModule } from 'app/page-scroll/page-scroll.module';
 		SamaPageScrollModule
 	],
 	declarations: [
-		SamaApp,
-		SamaAppTitle,
-		SamaContent
+		SamaAppComponent,
+		SamaAppTitleComponent,
+		SamaContentComponent
 	],
 	providers: [
 		TopicService
 	],
 	exports: [
-		SamaApp,
-		SamaAppTitle,
-		SamaContent
+		SamaAppComponent,
+		SamaAppTitleComponent,
+		SamaContentComponent
 	]
 })
 export class SamaMainModule { }

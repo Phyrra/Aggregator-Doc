@@ -6,6 +6,6 @@ import { Input } from '@angular/core';
 	templateUrl: './sama-chapter.component.html',
 	styleUrls: ['./sama-chapter.component.scss']
 })
-export class SamaChapter {
+export class SamaChapterComponent {
 	@Input() title: string;
 }

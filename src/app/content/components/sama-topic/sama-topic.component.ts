@@ -6,6 +6,6 @@ import { Input } from '@angular/core';
 	templateUrl: './sama-topic.component.html',
 	styleUrls: ['./sama-topic.component.scss']
 })
-export class SamaTopic {
+export class SamaTopicComponent {
 	@Input() title: string;
 }

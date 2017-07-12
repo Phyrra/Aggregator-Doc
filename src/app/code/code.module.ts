@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { SamaCodeBlock } from './components/sama-code-block/sama-code-block.component';
+import { SamaCodeBlockComponent } from './components/sama-code-block/sama-code-block.component';
 
 @NgModule({
 	declarations: [
-		SamaCodeBlock
+		SamaCodeBlockComponent
 	],
 	exports: [
-		SamaCodeBlock
+		SamaCodeBlockComponent
 	]
 })
 export class SamaCodeModule { }

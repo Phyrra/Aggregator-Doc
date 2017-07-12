@@ -40,7 +40,7 @@
 			}
 		}
 
-		@media(max-width: $breakpoint) {
+		@media(max-width: #{$breakpoint - 1}) {
 			sama-sidebar {
 				width: $sidebar-slim-width;
 

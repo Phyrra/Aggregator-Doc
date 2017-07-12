@@ -8,7 +8,7 @@ import { SidebarItem } from '../../interfaces/SidebarItem.interface';
 	templateUrl: './sama-sidebar-item.component.html',
 	styleUrls: ['./sama-sidebar-item.component.scss']
 })
-export class SamaSidebarItem {
+export class SamaSidebarItemComponent {
 	@Input() baseRoute: string;
 	@Input() item: SidebarItem;
 }

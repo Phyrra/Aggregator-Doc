@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
 	templateUrl: './sama-fnc-signature.component.html',
 	styleUrls: ['./sama-fnc-signature.component.scss']
 })
-export class SamaFncSignature { }
+export class SamaFncSignatureComponent { }

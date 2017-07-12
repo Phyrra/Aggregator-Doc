@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { SamaSidebar } from './components/sama-sidebar/sama-sidebar.component';
-import { SamaSidebarChapter } from './components/sama-sidebar-chapter/sama-sidebar-chapter.component';
-import { SamaSidebarItem } from './components/sama-sidebar-item/sama-sidebar-item.component';
-import { SamaSidebarSearch } from './components/sama-sidebar-search/sama-sidebar-search.component';
+import { SamaSidebarComponent } from './components/sama-sidebar/sama-sidebar.component';
+import { SamaSidebarChapterComponent } from './components/sama-sidebar-chapter/sama-sidebar-chapter.component';
+import { SamaSidebarItemComponent } from './components/sama-sidebar-item/sama-sidebar-item.component';
+import { SamaSidebarSearchComponent } from './components/sama-sidebar-search/sama-sidebar-search.component';
 
 @NgModule({
 	imports: [
@@ -16,16 +16,16 @@ import { SamaSidebarSearch } from './components/sama-sidebar-search/sama-sidebar
 		FormsModule
 	],
 	declarations: [
-		SamaSidebar,
-		SamaSidebarChapter,
-		SamaSidebarItem,
-		SamaSidebarSearch
+		SamaSidebarComponent,
+		SamaSidebarChapterComponent,
+		SamaSidebarItemComponent,
+		SamaSidebarSearchComponent
 	],
 	exports: [
-		SamaSidebar,
-		SamaSidebarChapter,
-		SamaSidebarItem,
-		SamaSidebarSearch
+		SamaSidebarComponent,
+		SamaSidebarChapterComponent,
+		SamaSidebarItemComponent,
+		SamaSidebarSearchComponent
 	]
 })
 export class SamaSidebarModule { }

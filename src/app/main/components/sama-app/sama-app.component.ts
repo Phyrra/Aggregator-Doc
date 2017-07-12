@@ -9,8 +9,8 @@ import { TopicService } from '../../services/TopicService.service';
 	templateUrl: './sama-app.component.html',
 	styleUrls: ['./sama-app.component.scss']
 })
-export class SamaApp {
-	appTitle: string = 'Aggregator Doc';
+export class SamaAppComponent {
+	appTitle = 'Aggregator Doc';
 	chapters: SidebarChapter[];
 
 	constructor(topicService: TopicService) {

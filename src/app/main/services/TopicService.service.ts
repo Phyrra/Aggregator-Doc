@@ -4,7 +4,7 @@ import { SidebarChapter } from 'app/sidebar/interfaces/SidebarChapter.interface'
 
 @Injectable()
 export class TopicService {
-	getTopics(): SidebarChapter[] {
+	getTopics() : SidebarChapter[] {
 		return [
 			{
 				title: 'Aggregator',
