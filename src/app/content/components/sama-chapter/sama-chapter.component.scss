@@ -1,0 +1,12 @@
+@import "~scss/definitions.scss";
+
+:host {
+	> .title {
+		font-size: $default-font-size * 1.75;
+		padding: $default-padding;
+		font-weight: bold;
+
+		background-color: $middle-blue;
+		color: $text-color-inverse;
+	}
+}

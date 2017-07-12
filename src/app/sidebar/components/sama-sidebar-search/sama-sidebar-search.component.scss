@@ -1,0 +1,53 @@
+@import "~scss/definitions.scss";
+
+:host {
+	display: block;
+	padding: $default-padding;
+	background-color: $backdrop;
+
+	position: relative;
+	width: 100%;
+
+	.fa.fa-search {
+		position: absolute;
+
+		width: $icon-width;
+		left: $default-padding;
+		top: $default-padding + ($default-padding / 3 / 2);
+
+		text-align: center;
+	}
+
+	input {
+		border: none;
+		border-bottom: 2px solid $dark-grey;
+
+		background-color: transparent;
+
+		width: 100%;
+
+		padding-left: $icon-width + ($default-padding / 2);
+		padding-right: $icon-width + ($default-padding / 2);
+		padding-bottom: $default-padding / 3;
+
+		font-size: $chapter-title-font-size;
+		font-weight: bold;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.fa.fa-times {
+		position: absolute;
+
+		width: $icon-width;
+		right: $default-padding;
+		top: $default-padding + ($default-padding / 3 / 2);
+
+		color: $dark-blue;
+		text-align: center;
+
+		cursor: pointer;
+	}
+}

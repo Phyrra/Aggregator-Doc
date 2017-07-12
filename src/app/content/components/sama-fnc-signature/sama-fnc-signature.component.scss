@@ -1,0 +1,24 @@
+@import "~scss/definitions.scss";
+
+:host {
+	&:not(:first-child) {
+		margin-top: $default-padding;
+	}
+
+	background-color: $light-grey;
+	display: block;
+
+	padding: $default-padding;
+	text-align: center;
+
+	font-family: monospace;
+	white-space: nowrap;
+
+	.call {
+		font-size: $default-font-size;
+	}
+
+	.signature {
+		font-size: $default-font-size * 1.25;
+	}
+}

@@ -1,0 +1,22 @@
+@import "~scss/definitions.scss";
+
+:host {
+	a {
+		display: block;
+		padding: $default-padding;
+
+		color: $text-color;
+
+		&:hover,
+		&.active {
+			background-color: $light-blue;
+			color: $text-color-inverse;
+		}
+	}
+
+	a,
+	a:hover,
+	a:active {
+		text-decoration: none;
+	}
+}

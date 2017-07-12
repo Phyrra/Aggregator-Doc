@@ -1,0 +1,14 @@
+<div class="title">
+	<sama-app-title [title]="appTitle"></sama-app-title>
+</div>
+
+<div class="container">
+	<sama-sidebar
+		baseRoute="doc"
+		[chapters]="chapters"
+	></sama-sidebar>
+
+	<div class="content-container">
+		<router-outlet></router-outlet>
+	</div>
+</div>

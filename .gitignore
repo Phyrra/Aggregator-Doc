@@ -1,4 +1,12 @@
-build/
-tmp/
+.vscode/
+
+# misc
+/.sass-cache
+yarn-error.log
+/typings
+
+#System Files
+Thumbs.db
+
 node_modules/
-bower_components/
+dist/

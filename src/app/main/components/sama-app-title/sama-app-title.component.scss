@@ -1,0 +1,9 @@
+@import "~scss/definitions.scss";
+
+:host {
+	font-size: $page-title-font-size;
+
+	> div {
+		padding: $default-padding;
+	}
+}
