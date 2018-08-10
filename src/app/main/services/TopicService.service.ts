@@ -34,12 +34,6 @@ export class TopicService {
 						id: 'aggregator-all',
 						title: 'all()'
 					}, {
-						id: 'aggregator-sum',
-						title: 'sum()'
-					}, {
-						id: 'aggregator-avg',
-						title: 'avg()'
-					}, {
 						id: 'aggregator-removeduplicates',
 						title: 'removeDuplicates()'
 					}, {
