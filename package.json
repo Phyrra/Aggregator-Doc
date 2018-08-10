@@ -6,9 +6,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod",
     "test": "ng test --single-run",
-    "lint": "ng lint --type-check",
-    "e2e": "ng e2e"
+    "lint": "ng lint --type-check"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,9 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "jquery-ts": "^2.1.1",
+    "masa-aggregator": "^0.2.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

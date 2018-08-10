@@ -8,4 +8,5 @@ import { Input } from '@angular/core';
 })
 export class SamaAppTitleComponent {
 	@Input() title: string;
+	@Input() version: string;
 }

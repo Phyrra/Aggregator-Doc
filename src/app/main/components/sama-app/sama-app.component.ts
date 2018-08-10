@@ -11,6 +11,7 @@ import { TopicService } from '../../services/TopicService.service';
 })
 export class SamaAppComponent {
 	appTitle = 'Aggregator Doc';
+	appVersion = 'v0.2.0';
 	chapters: SidebarChapter[];
 
 	constructor(topicService: TopicService) {

@@ -6,4 +6,12 @@
 	> div {
 		padding: $default-padding;
 	}
+
+	.version {
+		padding: $default-padding;
+		padding-left: 0;
+
+		font-size: $page-title-font-size * 0.5;
+		color: darken($text-color-inverse, 15%);
+	}
 }

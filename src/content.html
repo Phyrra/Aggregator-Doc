@@ -146,7 +146,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.find(</span>
 			<span class="signature">
-				Array, (Function | Any)
+				Array&lt;String | Function&gt;, (Function | Any)
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -156,7 +156,7 @@
 
 			<div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -164,7 +164,7 @@
 				</div>
 				<div class="alternative">-or-</div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -320,7 +320,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.where(</span>
 			<span class="signature">
-				Array, (Function | Any)
+				Array&lt;String | Function&gt;, (Function | Any)
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -330,7 +330,7 @@
 
 			<div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -338,7 +338,7 @@
 				</div>
 				<div class="alternative">-or-</div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -423,7 +423,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.sort(</span>
 			<span class="signature">
-				(String | Function) [, (String | Function) ...]
+				(String | Function | Array&lt;[(String | Function)], Function&gt;) [, (String | Function | Array&lt;[(String | Function)], Function&gt;) ...]
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -439,6 +439,11 @@
 			<div>
 				<span class="type">mapper (Function)</span>: A function to map the element for comparison
 			</div>	
+			<div class="alternative">-or-</div>
+			<div>
+				<span class="type">mapperAndSorter Array&lt;[(String | Function)], Function&gt;</span>:
+				A combination of a mapper and a sorting function, comparing the mapped values
+			</div>
 		</div>
 
 		<div class="section">
@@ -456,6 +461,13 @@
 					function(elem) &#123;
 						return elem.entryDate;
 					&#125;
+				)
+
+				a.sort(
+					[
+						'employee.age',
+						function(a, b) &#123; return a - b; &125;
+					]
 				)
 			</sama-code-block>
 		</div>
@@ -638,7 +650,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.count(</span>
 			<span class="signature">
-				Array, (Function | Any)
+				Array&lt;String | Function&gt;, (Function | Any)
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -648,7 +660,7 @@
 
 			<div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -656,7 +668,7 @@
 				</div>
 				<div class="alternative">-or-</div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -813,7 +825,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.has(</span>
 			<span class="signature">
-				Array, (Function | Any)
+				Array&lt;String | Function&gt;, (Function | Any)
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -823,7 +835,7 @@
 
 			<div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -831,7 +843,7 @@
 				</div>
 				<div class="alternative">-or-</div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -988,7 +1000,7 @@
 		<sama-fnc-signature>
 			<span class="call">a.all(</span>
 			<span class="signature">
-				Array, (Function | Any)
+				Array&lt;String | Function&gt;, (Function | Any)
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -998,7 +1010,7 @@
 
 			<div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -1006,7 +1018,7 @@
 				</div>
 				<div class="alternative">-or-</div>
 				<div>
-					<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+					<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 					either composite keys or functions
 				</div>
 				<div>
@@ -1254,64 +1266,6 @@
 				);
 			</sama-code-block>
 		</div>
-
-		<sama-fnc-signature>
-			<span class="call">Aggregator.getCommonElements(</span>
-			<span class="signature">
-				[( String | Function)], Aggregator [, Aggregator ...]
-			</span>
-			<span class="call">)</span>
-		</sama-fnc-signature>
-
-		<div class="section">
-			<div class="section-title">Arguments</div>
-
-			<div>
-				<span class="type">aggregator 1 (Aggregator)</span>: Another aggregator
-			</div>
-			<div>
-				<span class="type">aggregator 2-n (Aggregator)</span>: Another aggregator
-			</div>
-			<div class="alternative">-or</div>
-			<div>
-				<span class="type">key (String)</span>: A property key, may be composited with <span class="inline">.</span>
-				(e.g. <span class="inline">state.id</span>)
-			</div>
-			<div>
-				<span class="type">aggregator 1 (Aggregator)</span>: Another aggregator
-			</div>
-			<div>
-				<span class="type">aggregator 2-n (Aggregator)</span>: Another aggregator
-			</div>
-			<div class="alternative">-or</div>
-			<div>
-				<span class="type">mapper (Function)</span>: A mapping function
-			</div>
-			<div>
-				<span class="type">aggregator 1 (Aggregator)</span>: Another aggregator
-			</div>
-			<div>
-				<span class="type">aggregator 2-n (Aggregator)</span>: Another aggregator
-			</div>
-		</div>
-
-		<div class="section">
-			<div class="section-title">Example</div>
-
-			<sama-code-block>
-				// for a flat list of values
-				Aggregator.getCommonElements(a1, a2);
-
-				Aggregator.getCommonElements('account.accountNumber', a1, a2);
-
-				Aggregator.getCommonElements(
-					function(elem) &#123;
-						return elem.account.accountNumber;
-					&#125;,
-					a1, a2
-				);
-			</sama-code-block>
-		</div>
 	</sama-topic>
 
 	<sama-topic title="group" id="aggregator-group">
@@ -1455,7 +1409,7 @@
 		<div class="section">
 			<div class="section-title">Returns</div>
 
-			<span class="type">Array[ String ]</span>: Returns a list of keys
+			<span class="type">Array&lt;String&gt;</span>: Returns a list of keys
 		</div>
 
 		<sama-fnc-signature>
@@ -1488,7 +1442,7 @@
 		<div class="section">
 			<div class="section-title">Returns</div>
 
-			<span class="type">Array[ Any ]</span>: Returns a list of grouped values
+			<span class="type">Array&lt;Any&gt;</span>: Returns a list of grouped values
 		</div>
 
 		<sama-fnc-signature>
@@ -1521,7 +1475,7 @@
 		<div class="section">
 			<div class="section-title">Returns</div>
 
-			<span class="type">Array[ Any ]</span>: Returns a group of values
+			<span class="type">Array&lt;Any&gt;</span>: Returns a group of values
 		</div>
 
 		<sama-fnc-signature>
@@ -1594,13 +1548,13 @@
 	<sama-topic title="toArray" id="group-toarray">
 		<div class="section">
 			Turns the <span class="type">Group</span> into an <span class="type">Array</span>,
-			containing elements of <span class="inline">&#123; _key: String, _items: Array[ Any ] &#125;</span>.
+			containing elements of <span class="inline">&#123; _key: String, _items: Array&lt;Any&gt; &#125;</span>.
 		</div>
 
 		<div class="section">
 			<div class="section-title">Returns</div>
 
-			<span class="type">Array[ Any ]</span>: Returns a list containing the flattened groups
+			<span class="type">Array&lt;Any&gt;</span>: Returns a list containing the flattened groups
 		</div>
 
 		<sama-fnc-signature>
@@ -1661,7 +1615,7 @@
 	<sama-topic title="toAggregator" id="group-toaggregator">
 		<div class="section">
 			Turns the <span class="type">Group</span> into an <span class="type">Aggregator</span>,
-			containing elements of <span class="inline">&#123; _key: String, _items: Array[ Any ] &#125;</span>
+			containing elements of <span class="inline">&#123; _key: String, _items: Array&lt;Any&gt; &#125;</span>
 		</div>
 
 		<div class="section">
@@ -2397,7 +2351,7 @@
 		<sama-fnc-signature>
 			<span class="call">all(</span>
 			<span class="signature">
-				[Array[ String | Function ], ] Function
+				[Array&lt;String | Function&gt;, ] Function
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -2406,7 +2360,7 @@
 			<div class="section-title">Arguments</div>
 
 			<div>
-				<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+				<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 				either composite keys or functions
 			</div>
 			<div>
@@ -2459,7 +2413,7 @@
 		<sama-fnc-signature>
 			<span class="call">one(</span>
 			<span class="signature">
-				[Array[ String | Function ], ] Function
+				[Array&lt;String | Function&gt;, ] Function
 			</span>
 			<span class="call">)</span>
 		</sama-fnc-signature>
@@ -2468,7 +2422,7 @@
 			<div class="section-title">Arguments</div>
 
 			<div>
-				<span class="type">mappers (Array[ String | Function ])</span>: A list of value mappers,
+				<span class="type">mappers (Array&lt;String | Function&gt;)</span>: A list of value mappers,
 				either composite keys or functions
 			</div>
 			<div>
